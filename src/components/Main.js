@@ -40,8 +40,8 @@ const Main = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/appetizers">
-          <Appetizers />
+        <Route exact path="/appetizers">
+          <Appetizers appetizers={appetizers} createAppetizers={createAppetizers}/>
         </Route>
         <Route 
           path="/appetizers/:id"
