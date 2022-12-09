@@ -18,6 +18,18 @@ const Main = () => {
     setAppetizers(data);
   }
 
+  const createAppetizers = async (app) => {
+    await fetch(appetizersURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(app),
+      }
+    )
+    getAppetizers();
+  }
+
   useEffect(() => {
     getAppetizers()
   }, [])
