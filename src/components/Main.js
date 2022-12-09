@@ -16,6 +16,16 @@ const Main = () => {
         <Route exact path="/">
           <Home />
         </Route>
+        <Route path="/appetizers">
+          <Appetizers />
+        </Route>
+        <Route 
+          path="/appetizers/:id"
+          render={(rp) => (
+            <AppetizersShow {...rp}/>
+            )
+          }
+        />
       </Switch>
     </main>
   )
