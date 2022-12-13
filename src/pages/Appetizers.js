@@ -32,6 +32,7 @@ const Appetizers = (props) => {
 
   const handleInstructionsChange = (e) => {
     setInstructions(e.target.value)
+    console.log("instructions", instructions)
   }
 
   const handleSubmit = (e) => {
@@ -96,13 +97,23 @@ const Appetizers = (props) => {
           />
           <button onClick={handleIngredientsClick} >Add Ingredient</button>
         </label>
-        {ingredients.map((ing) => {
-        return (
-          <div>
-            {ing}
-          </div>
-        )
-      })}
+            {ingredients.map((ing) => {
+            return (
+              <div>
+                {ing}
+              </div>
+            )
+          })}
+        <label> <span>Instructions</span>
+          <input 
+            type="textArea"
+            value={instructions}
+            name="instructions"
+            placeholder="Instructions"
+            onChange={handleInstructionsChange}
+          />
+        </label>
+
       </form>
       {props.appetizers ? loaded() : loading()}
     </section>
