@@ -1,7 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 
 const Appetizers = (props) => {
+
+  const [userInput, setUserInput] = useState({
+    name: "",
+    img: "",
+    ingredients: [{}],
+    instructions: ""
+  })
+
+  const handleChange = (e) => {
+    setUserInput({...userInput, [e.target.name]: e.target.value})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.createAppetizers(userInput);
+    setUserInput({
+      name: "",
+      img: "",
+      ingredients: [],
+      instructions: ""
+    })
+  }
+
 
   const loaded = () => {
     return props.appetizers.map((app) => {
