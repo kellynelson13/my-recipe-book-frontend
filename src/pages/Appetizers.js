@@ -27,6 +27,7 @@ const Appetizers = (props) => {
 
   const handleIngredientChange = (e) => {
     setIngInput(e.target.value)
+    console.log("ing", ingInput)
   }
 
   const handleInstructionsChange = (e) => {
@@ -67,20 +68,41 @@ const Appetizers = (props) => {
   return (
     <section>
       <form>
-        <input 
-          type="text"
-          value={name}
-          name="name"
-          placeholder="Name of Dish"
-          onChange={handleNameChange}
-        />
-        <input 
-          type="text"
-          value={img}
-          name="img"
-          placeholder="Image URL"
-          onChange={handleImgChange}
-        />
+        <label> <span>Name of Recipe</span>
+          <input 
+            type="text"
+            value={name}
+            name="name"
+            placeholder="Name of Dish"
+            onChange={handleNameChange}
+          />
+        </label>
+        <label> <span>Image of Recipe</span>
+          <input 
+            type="text"
+            value={img}
+            name="img"
+            placeholder="Image URL"
+            onChange={handleImgChange}
+          />
+        </label>
+        <label> <span>Ingredients</span>
+          <input 
+            type="text"
+            value={ingInput}
+            name="ingredients"
+            placeholder="Ingredient"
+            onChange={handleIngredientChange}
+          />
+          <button onClick={handleIngredientsClick} >Add Ingredient</button>
+        </label>
+        {ingredients.map((ing) => {
+        return (
+          <div>
+            {ing}
+          </div>
+        )
+      })}
       </form>
       {props.appetizers ? loaded() : loading()}
     </section>
