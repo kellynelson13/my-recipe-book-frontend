@@ -7,6 +7,7 @@ const Appetizers = (props) => {
   const [img, setImg] = useState('')
   const [ingredients, setIngredients] = useState([])
   const [instructions, setInstructions] = useState('')
+  const [ingInput, setIngInput] = useState('')
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -17,8 +18,9 @@ const Appetizers = (props) => {
   }
 
   const handleIngredientsChange = (e) => {
-
+    
     setIngredients(oldArray => [...oldArray, e.target.value])
+    
   }
 
   const handleInstructionsChange = (e) => {
