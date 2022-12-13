@@ -43,7 +43,7 @@ const Appetizers = (props) => {
     props.createAppetizers(finalObject);
     setName("")
     setImg("")
-    setIngredients("")
+    setIngInput("")
     setInstructions("")
   }
 
@@ -63,9 +63,20 @@ const Appetizers = (props) => {
     return <h3>Loading . . .</h3>
   }
 
-  return props.appetizers ? loaded() : loading();
-    
-  
+  return (
+    <section>
+      <form>
+        <input 
+          type="text"
+          value={name}
+          name="name"
+          placeholder="Name of Dish"
+          onChange={handleNameChange}
+        />
+      </form>
+      {props.appetizers ? loaded() : loading()}
+    </section>
+  )
 }
 
 export default Appetizers
