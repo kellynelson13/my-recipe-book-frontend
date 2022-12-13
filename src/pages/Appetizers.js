@@ -3,26 +3,41 @@ import { Link } from 'react-router-dom';
 
 const Appetizers = (props) => {
 
-  const [userInput, setUserInput] = useState({
-    name: "",
-    img: "",
-    ingredients: [{}],
-    instructions: ""
-  })
+  const [name, setName] = useState('')
+  const [img, setImg] = useState('')
+  const [ingredients, setIngredients] = useState([])
+  const [instructions, setInstructions] = useState('')
 
-  const handleChange = (e) => {
-    setUserInput({...userInput, [e.target.name]: e.target.value})
+  const handleNameChange = (e) => {
+    setName(e.target.value)
+  }
+
+  const handleImgChange = (e) => {
+    setImg(e.target.value)
+  }
+
+  const handleIngredientsChange = (e) => {
+
+    setIngredients(oldArray => [...oldArray, e.target.value])
+  }
+
+  const handleInstructionsChange = (e) => {
+    setInstructions(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.createAppetizers(userInput);
-    setUserInput({
-      name: "",
-      img: "",
-      ingredients: [],
-      instructions: ""
-    })
+    const finalObject = {
+      name: name,
+      img: img,
+      ingredients: ingredients,
+      instructions: instructions,
+    }
+    props.createAppetizers(finalObject);
+    setName("")
+    setImg("")
+    setIngredients("")
+    setInstructions("")
   }
 
 
