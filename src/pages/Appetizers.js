@@ -15,6 +15,7 @@ const Appetizers = (props) => {
 
   const handleImgChange = (e) => {
     setImg(e.target.value)
+    console.log("Image", img)
   }
 
   const handleIngredientsClick = (e) => {
@@ -72,6 +73,13 @@ const Appetizers = (props) => {
           name="name"
           placeholder="Name of Dish"
           onChange={handleNameChange}
+        />
+        <input 
+          type="text"
+          value={img}
+          name="img"
+          placeholder="Image URL"
+          onChange={handleImgChange}
         />
       </form>
       {props.appetizers ? loaded() : loading()}
