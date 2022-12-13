@@ -17,10 +17,15 @@ const Appetizers = (props) => {
     setImg(e.target.value)
   }
 
-  const handleIngredientsChange = (e) => {
+  const handleIngredientsClick = (e) => {
+    e.preventDefault()
+    setIngredients(oldArray => [...oldArray, ingInput])
+    setIngInput('')
     
-    setIngredients(oldArray => [...oldArray, e.target.value])
-    
+  }
+
+  const handleIngredientChange = (e) => {
+    setIngInput(e.target.value)
   }
 
   const handleInstructionsChange = (e) => {
