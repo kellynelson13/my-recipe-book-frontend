@@ -101,6 +101,7 @@ const Appetizers = (props) => {
             return (
               <div>
                 {ing}
+                {ing}
               </div>
             )
           })}
