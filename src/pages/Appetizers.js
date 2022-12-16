@@ -47,6 +47,7 @@ const Appetizers = (props) => {
     setName("")
     setImg("")
     setIngInput("")
+    setIngredients([])
     setInstructions("")
   }
 
@@ -68,7 +69,7 @@ const Appetizers = (props) => {
 
   return (
     <section>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label> <span>Name of Recipe</span>
           <input 
             type="text"
@@ -106,15 +107,15 @@ const Appetizers = (props) => {
           })}
         <label> <span>Instructions</span>
           <textarea
-            
             name="instructions"
-            placeholder="Instructions"
+            placeholder=" Add instructions"
             onChange={handleInstructionsChange}
+            value={instructions}
           > 
             {instructions}
           </textarea>
         </label>
-
+        <input type="submit" value="Add Recipe"/>
       </form>
       {props.appetizers ? loaded() : loading()}
     </section>
