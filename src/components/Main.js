@@ -30,6 +30,17 @@ const Main = () => {
     getAppetizers();
   }
 
+  const updateAppetizers = async (appetizer, id) => {
+    await fetch(appetizersURL + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(appetizer)
+    })
+    getAppetizers()
+  }
+
   useEffect(() => {
     getAppetizers()
   }, [])
@@ -46,7 +57,10 @@ const Main = () => {
         <Route 
           path="/appetizers/:id"
           render={(rp) => (
-            <AppetizersShow {...rp}/>
+            <AppetizersShow 
+              {...rp}
+              appetizers={appetizers}
+            />
             )
           }
         />
