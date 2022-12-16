@@ -67,6 +67,8 @@ const Main = () => {
             <AppetizersShow 
               {...rp}
               appetizers={appetizers}
+              updateAppetizers={updateAppetizers}
+              deleteAppetizers={deleteAppetizers}
             />
             )
           }
