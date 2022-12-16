@@ -41,6 +41,13 @@ const Main = () => {
     getAppetizers()
   }
 
+  const deleteAppetizers = async (id) => {
+    await fetch(appetizersURL + id, {
+      method: "DELETE"
+    })
+    getAppetizers()
+  }
+
   useEffect(() => {
     getAppetizers()
   }, [])
