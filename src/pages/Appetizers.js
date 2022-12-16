@@ -20,7 +20,7 @@ const Appetizers = (props) => {
 
   const handleIngredientsClick = (e) => {
     e.preventDefault()
-    setIngredients(oldArray => [...oldArray, ingInput])
+    setIngredients(oldArray => [...oldArray, {ingredient: ingInput}])
     setIngInput('')
     
   }
@@ -101,7 +101,7 @@ const Appetizers = (props) => {
             {ingredients.map((ing) => {
             return (
               <div>
-                {ing}
+                {ing.ingredient}
               </div>
             )
           })}
