@@ -105,13 +105,14 @@ const Appetizers = (props) => {
             )
           })}
         <label> <span>Instructions</span>
-          <input 
-            type="textArea"
-            value={instructions}
+          <textarea
+            
             name="instructions"
             placeholder="Instructions"
             onChange={handleInstructionsChange}
-          />
+          > 
+            {instructions}
+          </textarea>
         </label>
 
       </form>
