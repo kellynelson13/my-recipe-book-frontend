@@ -7,7 +7,18 @@ const AppetizersShow = (props) => {
     const appetizer = appetizers.find(ap => ap._id === id)
 
   return (
-    <div>AppetizersShow</div>
+    <div>
+      <h1>{appetizer.name}</h1>
+      <img src={appetizer.img} alt={appetizer.name}/>
+      <ul>
+      {appetizer.ingredients.map(i => {
+        return(
+          <li>{i.ingredient}</li>
+        )
+      })}
+      </ul>
+      <p>{appetizer.instructions}</p>
+    </div>
   )
 }
 
