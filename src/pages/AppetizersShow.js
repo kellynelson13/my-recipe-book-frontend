@@ -12,6 +12,12 @@ const AppetizersShow = (props) => {
       setEditForm({ ...editForm, [e.target.name]: e.target.value })
     }
 
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      props.updateAppetizers(editForm, appetizer._id)
+      props.history.push("/")
+    }
+
   return (
     <div>
       <h1>{appetizer.name}</h1>
