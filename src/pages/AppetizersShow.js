@@ -12,20 +12,24 @@ const AppetizersShow = (props) => {
     const [ editInstructions, setEditInstructions ] = useState(appetizer.instructions)
 
     const handleNameChange = (e) => {
-      editName(e.target.value)
+      setEditName(e.target.value)
     }
 
     const handleImgChange = (e) => {
-      editImg(e.target.value)
+      setEditImg(e.target.value)
+    }
+
+    const handleIngredientChange = (e) => {
+      setEditIngredients(e.target.value)
     }
 
     const handleInstructionsChange = (e) => {
-      editInstructions(e.target.value)
+      setEditInstructions(e.target.value)
     }
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      props.updateAppetizers(editForm, appetizer._id)
+      // props.updateAppetizers(editForm, appetizer._id)
       props.history.push("/")
     }
 
@@ -69,7 +73,7 @@ const AppetizersShow = (props) => {
             value={editIngredients}
             name="ingredients"
             placeholder="Ingredient"
-            onChange={handleChange}
+            onChange={handleIngredientChange}
           />
           {/* <button onClick={handleIngredientsClick} >Add Ingredient</button> */}
         </label>
@@ -87,7 +91,7 @@ const AppetizersShow = (props) => {
             onChange={handleInstructionsChange}
             value={editInstructions}
           > 
-            {editForm.instructions}
+            {editInstructions}
           </textarea>
         </label>
         <input type="submit" value="Update Recipe"/>
