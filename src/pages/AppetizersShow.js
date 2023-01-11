@@ -11,8 +11,16 @@ const AppetizersShow = (props) => {
     const [ editIngredients, setEditIngredients ] = useState(appetizer.ingredients)
     const [ editInstructions, setEditInstructions ] = useState(appetizer.instructions)
 
-    const handleChange = (e) => {
-      setEditForm({ ...editForm, [e.target.name]: e.target.value })
+    const handleNameChange = (e) => {
+      editName(e.target.value)
+    }
+
+    const handleImgChange = (e) => {
+      editImg(e.target.value)
+    }
+
+    const handleInstructionsChange = (e) => {
+      editInstructions(e.target.value)
     }
 
     const handleSubmit = (e) => {
@@ -40,25 +48,25 @@ const AppetizersShow = (props) => {
         <label> <span>Name of Recipe</span>
           <input 
             type="text"
-            value={editForm.name}
+            value={editName}
             name="name"
             placeholder="Name of Dish"
-            onChange={handleChange}
+            onChange={handleNameChange}
           />
         </label>
         <label> <span>Image of Recipe</span>
           <input 
             type="text"
-            value={editForm.img}
+            value={editImg}
             name="img"
             placeholder="Image URL"
-            onChange={handleChange}
+            onChange={handleImgChange}
           />
         </label>
         <label> <span>Ingredients</span>
           <input 
             type="text"
-            value={editForm.ingredients}
+            value={editIngredients}
             name="ingredients"
             placeholder="Ingredient"
             onChange={handleChange}
@@ -76,8 +84,8 @@ const AppetizersShow = (props) => {
           <textarea
             name="instructions"
             placeholder=" Add instructions"
-            onChange={handleChange}
-            value={editForm.instructions}
+            onChange={handleInstructionsChange}
+            value={editInstructions}
           > 
             {editForm.instructions}
           </textarea>
