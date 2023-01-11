@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const AppetizersShow = (props) => {
 
     const id = props.match.params.id
     const appetizers = props.appetizers
     const appetizer = appetizers.find(ap => ap._id === id)
+
+    const [ editForm, setEditForm ] = useState(appetizer)
+
+    const handleChange = (e) => {
+      setEditForm({ ...editForm, [e.target.name]: e.target.value })
+    }
 
   return (
     <div>
