@@ -6,7 +6,10 @@ const AppetizersShow = (props) => {
     const appetizers = props.appetizers
     const appetizer = appetizers.find(ap => ap._id === id)
 
-    const [ editForm, setEditForm ] = useState(appetizer)
+    const [ editName, setEditName ] = useState(appetizer.name)
+    const [ editImg, setEditImg ] = useState(appetizer.img)
+    const [ editIngredients, setEditIngredients ] = useState(appetizer.ingredients)
+    const [ editInstructions, setEditInstructions ] = useState(appetizer.instructions)
 
     const handleChange = (e) => {
       setEditForm({ ...editForm, [e.target.name]: e.target.value })
@@ -79,7 +82,7 @@ const AppetizersShow = (props) => {
             {editForm.instructions}
           </textarea>
         </label>
-        <input type="submit" value="Add Recipe"/>
+        <input type="submit" value="Update Recipe"/>
       </form>
     </div>
   )
