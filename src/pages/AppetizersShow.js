@@ -43,6 +43,7 @@ const AppetizersShow = (props) => {
         ingredients: editIngredients,
         instructions: editInstructions
       }
+      console.log(finalObject)
       props.updateAppetizers(finalObject, appetizer._id)
       props.history.push("/appetizers")
     }

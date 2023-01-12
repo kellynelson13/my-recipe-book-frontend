@@ -10,7 +10,7 @@ const Main = () => {
   const [entrees, setEntrees] = useState([])
   const [desserts, setDesserts] = useState([])
 
-  const appetizersURL = "https://my-recipe-book-13.herokuapp.com/appetizers";
+  const appetizersURL = "https://my-recipe-book-13.herokuapp.com/appetizers/";
 
   const getAppetizers = async () => {
     const response = await fetch(appetizersURL);
