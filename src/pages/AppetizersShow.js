@@ -39,7 +39,8 @@ const AppetizersShow = (props) => {
       let index = editIngredients.findIndex(ing => {
         return ing.ingredient === nameOfIngredient
       })
-      setEditIngredients(editIngredients.slice(index, 1))
+      const deletedItem = editIngredients.splice(index, 1)
+      console.log(deletedItem)
       
     }
 

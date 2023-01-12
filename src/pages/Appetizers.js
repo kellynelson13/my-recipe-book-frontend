@@ -15,7 +15,6 @@ const Appetizers = (props) => {
 
   const handleImgChange = (e) => {
     setImg(e.target.value)
-    console.log("Image", img)
   }
 
   const handleIngredientsClick = (e) => {
@@ -27,12 +26,10 @@ const Appetizers = (props) => {
 
   const handleIngredientChange = (e) => {
     setIngInput(e.target.value)
-    console.log("ing", ingInput)
   }
 
   const handleInstructionsChange = (e) => {
     setInstructions(e.target.value)
-    console.log("instructions", instructions)
   }
 
   const handleSubmit = (e) => {
