@@ -35,6 +35,14 @@ const AppetizersShow = (props) => {
       setEditInstructions(e.target.value)
     }
 
+    const handleDeleteClick = (nameOfIngredient) => {
+      let index = editIngredients.findIndex(ing => {
+        return ing.ingredient === nameOfIngredient
+      })
+      setEditIngredients(editIngredients.slice(index, 1))
+      
+    }
+
     const handleSubmit = (e) => {
       e.preventDefault()
       const finalObject = {
@@ -43,7 +51,7 @@ const AppetizersShow = (props) => {
         ingredients: editIngredients,
         instructions: editInstructions
       }
-      console.log(finalObject)
+      // console.log(finalObject)
       props.updateAppetizers(finalObject, appetizer._id)
       props.history.push("/appetizers")
     }
@@ -98,7 +106,8 @@ const AppetizersShow = (props) => {
             return (
               <div>
                 <ul>
-                  <li>{ing.ingredient}</li><button>X</button>
+                  <li>{ing.ingredient}</li>
+                  <button onClick={() => {handleDeleteClick(ing.ingredient)}}>X</button>
                 </ul>
               </div>
             )
