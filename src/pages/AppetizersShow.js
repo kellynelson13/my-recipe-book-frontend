@@ -10,6 +10,7 @@ const AppetizersShow = (props) => {
     const [ editImg, setEditImg ] = useState(appetizer.img)
     const [ editIngredients, setEditIngredients ] = useState(appetizer.ingredients)
     const [ editInstructions, setEditInstructions ] = useState(appetizer.instructions)
+    const [ ingInput, setIngInput] = useState('')
 
     const handleNameChange = (e) => {
       setEditName(e.target.value)
@@ -20,7 +21,14 @@ const AppetizersShow = (props) => {
     }
 
     const handleIngredientChange = (e) => {
-      setEditIngredients(e.target.value)
+      setIngInput(e.target.value)
+    }
+
+    const handleIngredientsClick = (e) => {
+      e.preventDefault()
+      setEditIngredients(oldArray => [...oldArray, {ingredient: ingInput}])
+      setIngInput('')
+      console.log(editIngredients)
     }
 
     const handleInstructionsChange = (e) => {
@@ -70,20 +78,20 @@ const AppetizersShow = (props) => {
         <label> <span>Ingredients</span>
           <input 
             type="text"
-            value={editIngredients}
+            // value={editIngredients}
             name="ingredients"
             placeholder="Ingredient"
             onChange={handleIngredientChange}
           />
-          {/* <button onClick={handleIngredientsClick} >Add Ingredient</button> */}
+          <button onClick={handleIngredientsClick} >Add Ingredient</button>
         </label>
-            {/* {ingredients.map((ing) => {
+            {editIngredients.map((ing) => {
             return (
               <div>
                 {ing.ingredient}
               </div>
             )
-          })} */}
+          })}
         <label> <span>Instructions</span>
           <textarea
             name="instructions"
