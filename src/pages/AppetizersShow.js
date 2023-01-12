@@ -56,7 +56,9 @@ const AppetizersShow = (props) => {
         <ul>
         {appetizer.ingredients.map(i => {
           return(
-            <li>{i.ingredient}</li>
+            <div>
+              <li>{i.ingredient}</li>
+            </div>
           )
         })}
         </ul>
@@ -95,7 +97,9 @@ const AppetizersShow = (props) => {
             {editIngredients.map((ing) => {
             return (
               <div>
-                {ing.ingredient}
+                <ul>
+                  <li>{ing.ingredient}</li><button>X</button>
+                </ul>
               </div>
             )
           })}
