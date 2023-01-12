@@ -37,8 +37,14 @@ const AppetizersShow = (props) => {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      // props.updateAppetizers(editForm, appetizer._id)
-      props.history.push("/")
+      const finalObject = {
+        name: editName,
+        img: editImg,
+        ingredients: editIngredients,
+        instructions: editInstructions
+      }
+      props.updateAppetizers(finalObject, appetizer._id)
+      props.history.push("/appetizers")
     }
 
   return (
