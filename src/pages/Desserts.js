@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Desserts = (props) => {
   
@@ -45,6 +46,23 @@ const Desserts = (props) => {
     setIngInput("")
     setIngredients([])
     setInstructions("")
+  }
+
+  const loaded = () => {
+    return props.desserts.map((des) => {
+      return (
+        <div key={des._id}>
+          <Link to={`/desserts/${des._id}`}><h1>{des.name}</h1></Link>
+          <img src={des.img} alt={des.name}/>
+        </div>
+      )
+    })
+  }
+
+  const loading = () => {
+    return(
+      <h3>Loading . . .</h3>
+    )
   }
 
   return (
