@@ -11,6 +11,7 @@ const Desserts = (props) => {
 
   const handleNameChange = (e) => {
     setName(e.target.value)
+    console.log(name)
   }
 
   const handleImgChange = (e) => {
@@ -66,7 +67,20 @@ const Desserts = (props) => {
   }
 
   return (
-    <div>{props.desserts ? loaded() : loading()}</div>
+    <section>
+      <form>
+        <label> <span>Name of Recipe</span>
+            <input 
+              type="text"
+              value={name}
+              name="name"
+              placeholder="Name of Dish"
+              onChange={handleNameChange}
+            />
+        </label>
+      </form>
+      {props.desserts ? loaded() : loading()}
+    </section>
   )
 }
 
