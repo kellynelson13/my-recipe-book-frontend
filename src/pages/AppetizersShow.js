@@ -36,11 +36,13 @@ const AppetizersShow = (props) => {
     }
 
     const handleDeleteClick = (nameOfIngredient) => {
+      
       let index = editIngredients.findIndex(ing => {
         return ing.ingredient === nameOfIngredient
       })
       const deletedItem = editIngredients.splice(index, 1)
       console.log(deletedItem)
+      props.history.push("/appetizers/" + id)
       
     }
 
