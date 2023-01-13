@@ -66,7 +66,7 @@ const Desserts = (props) => {
   }
 
   return (
-    <div>Desserts</div>
+    <div>{props.desserts ? loaded() : loading()}</div>
   )
 }
 
