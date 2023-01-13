@@ -20,6 +20,12 @@ const Main = () => {
     setAppetizers(data);
   }
 
+  const getDesserts = async () => {
+    const response = await fetch(dessertsURL);
+    const data = await response.json();
+    setDesserts(data);
+  }
+ 
   const createAppetizers = async (app) => {
     await fetch(appetizersURL, {
         method: "POST",
@@ -30,6 +36,18 @@ const Main = () => {
       }
     )
     getAppetizers();
+  }
+
+  const createDesserts = async (dessert) => {
+    await fetch(dessertsURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(dessert),
+      }
+    )
+    getDesserts();
   }
 
   const updateAppetizers = async (appetizer, id) => {
@@ -76,7 +94,7 @@ const Main = () => {
           }
         />
         <Route exact path="/desserts">
-          <Desserts />
+          <Desserts desserts={desserts} />
         </Route>
       </Switch>
     </main>
