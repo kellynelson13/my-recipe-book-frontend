@@ -11,7 +11,6 @@ const Desserts = (props) => {
 
   const handleNameChange = (e) => {
     setName(e.target.value)
-    console.log(name)
   }
 
   const handleImgChange = (e) => {
@@ -31,6 +30,7 @@ const Desserts = (props) => {
 
   const handleInstructionsChange = (e) => {
     setInstructions(e.target.value)
+    console.log(instructions)
   }
 
   const handleSubmit = (e) => {
@@ -78,6 +78,43 @@ const Desserts = (props) => {
               onChange={handleNameChange}
             />
         </label>
+        <label> <span>Image of Recipe</span>
+          <input 
+            type="text"
+            value={img}
+            name="img"
+            placeholder="Image URL"
+            onChange={handleImgChange}
+          />
+        </label>
+        <label> <span>Ingredients</span>
+          <input 
+            type="text"
+            value={ingInput}
+            name="ingredients"
+            placeholder="Ingredient"
+            onChange={handleIngredientChange}
+          />
+          <button onClick={handleIngredientsClick} >Add Ingredient</button>
+        </label>
+        {ingredients.map((ing) => {
+            return (
+              <div>
+                {ing.ingredient}
+              </div>
+            )
+          })}
+        <label> <span>Instructions</span>
+          <textarea
+            name="instructions"
+            placeholder=" Add instructions"
+            onChange={handleInstructionsChange}
+            value={instructions}
+          > 
+            {instructions}
+          </textarea>
+        </label>
+        <input type="submit" value="Add Recipe"/>
       </form>
       {props.desserts ? loaded() : loading()}
     </section>
