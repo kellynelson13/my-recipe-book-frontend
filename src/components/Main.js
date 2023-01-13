@@ -70,6 +70,7 @@ const Main = () => {
 
   useEffect(() => {
     getAppetizers()
+    getDesserts()
   }, [])
 
   return (
@@ -94,7 +95,7 @@ const Main = () => {
           }
         />
         <Route exact path="/desserts">
-          <Desserts desserts={desserts} />
+          <Desserts desserts={desserts} createDesserts={createDesserts} />
         </Route>
       </Switch>
     </main>
