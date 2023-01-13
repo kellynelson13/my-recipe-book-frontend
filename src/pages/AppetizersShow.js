@@ -59,6 +59,11 @@ const AppetizersShow = (props) => {
       props.history.push("/appetizers")
     }
 
+    const removeAppetizer = () => {
+      props.deleteAppetizers(appetizer._id)
+      props.history.push('/appetizers')
+    }
+
   return (
     <div>
       <div>
@@ -74,6 +79,7 @@ const AppetizersShow = (props) => {
         })}
         </ul>
         <p>{appetizer.instructions}</p>
+        <button onClick={removeAppetizer}>Delete Appetizer</button>
       </div>
 
       <form onSubmit={handleSubmit}>
