@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import Home from '../pages/Home';
 import Appetizers from '../pages/Appetizers';
 import AppetizersShow from '../pages/AppetizersShow';
+import Desserts from '../pages/Desserts';
 
 const Main = () => {
 
@@ -11,6 +12,7 @@ const Main = () => {
   const [desserts, setDesserts] = useState([])
 
   const appetizersURL = "https://my-recipe-book-13.herokuapp.com/appetizers/";
+  const dessertsURL = "https://my-recipe-book-13.herokuapp.com/desserts/";
 
   const getAppetizers = async () => {
     const response = await fetch(appetizersURL);
@@ -73,6 +75,9 @@ const Main = () => {
             )
           }
         />
+        <Route exact path="/desserts">
+          <Desserts />
+        </Route>
       </Switch>
     </main>
   )
