@@ -68,7 +68,7 @@ const Desserts = (props) => {
 
   return (
     <section>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label> <span>Name of Recipe</span>
             <input 
               type="text"
