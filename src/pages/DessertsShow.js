@@ -28,7 +28,6 @@ const DessertsShow = (props) => {
       e.preventDefault()
       setEditIngredients(oldArray => [...oldArray, {ingredient: ingInput}])
       setIngInput('')
-      console.log(editIngredients)
     }
 
     const handleInstructionsChange = (e) => {
@@ -103,7 +102,7 @@ const DessertsShow = (props) => {
         <label> <span>Ingredients</span>
           <input 
             type="text"
-            // value={editIngredients}
+            value={ingInput}
             name="ingredients"
             placeholder="Ingredient"
             onChange={handleIngredientChange}

@@ -104,7 +104,7 @@ const AppetizersShow = (props) => {
         <label> <span>Ingredients</span>
           <input 
             type="text"
-            // value={editIngredients}
+            value={ingInput}
             name="ingredients"
             placeholder="Ingredient"
             onChange={handleIngredientChange}
