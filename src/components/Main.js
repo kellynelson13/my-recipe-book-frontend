@@ -104,8 +104,8 @@ const Main = () => {
             <DessertsShow 
               {...rp}
               desserts={desserts}
-              // updateDesserts={updateDesserts}
-              // deleteDesserts={deleteDesserts}
+              updateDesserts={updateDesserts}
+              deleteDesserts={deleteDesserts}
             />
             )
           }
