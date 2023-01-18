@@ -62,11 +62,29 @@ const Main = () => {
     getAppetizers()
   }
 
+  const updateDesserts = async (dessert, id) => {
+    await fetch(dessertsURL + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(dessert)
+    })
+    getDesserts()
+  }
+
   const deleteAppetizers = async (id) => {
     await fetch(appetizersURL + id, {
       method: "DELETE"
     })
     getAppetizers()
+  }
+
+  const deleteDesserts = async (id) => {
+    await fetch(dessertsURL + id, {
+      method: "DELETE"
+    })
+    getDesserts()
   }
 
   useEffect(() => {
