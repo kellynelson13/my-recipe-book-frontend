@@ -7,7 +7,18 @@ const DessertsShow = (props) => {
     const dessert = desserts.find(de => de._id === id)
 
   return (
-    <div>DessertsShow</div>
+    <div>
+      <h1>{dessert.name}</h1>
+      <img src={dessert.img} alt={dessert.name}/>
+      <ul>
+        {dessert.ingredients.map(ing => {
+          return (
+          <li>{ing.ingredient}</li>
+          )
+        })}
+      </ul>
+      <p>{dessert.instructions}</p>
+    </div>
   )
 }
 
