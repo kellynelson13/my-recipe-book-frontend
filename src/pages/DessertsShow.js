@@ -67,17 +67,72 @@ const DessertsShow = (props) => {
 
   return (
     <div>
-      <h1>{dessert.name}</h1>
-      <img src={dessert.img} alt={dessert.name}/>
-      <ul>
-        {dessert.ingredients.map(ing => {
-          return (
-          <li>{ing.ingredient}</li>
-          )
-        })}
-      </ul>
-      <p>{dessert.instructions}</p>
-      <button onClick={removeDessert}>Delete Dessert</button>
+      <div>
+        <h1>{dessert.name}</h1>
+        <img src={dessert.img} alt={dessert.name}/>
+        <ul>
+          {dessert.ingredients.map(ing => {
+            return (
+            <li>{ing.ingredient}</li>
+            )
+          })}
+        </ul>
+        <p>{dessert.instructions}</p>
+        <button onClick={removeDessert}>Delete Dessert</button>
+      </div>
+
+      <form onSubmit={handleSubmit}>
+        <label> <span>Name of Recipe</span>
+          <input 
+            type="text"
+            value={editName}
+            name="name"
+            placeholder="Name of Dish"
+            onChange={handleNameChange}
+          />
+        </label>
+        <label> <span>Image of Recipe</span>
+          <input 
+            type="text"
+            value={editImg}
+            name="img"
+            placeholder="Image URL"
+            onChange={handleImgChange}
+          />
+        </label>
+        <label> <span>Ingredients</span>
+          <input 
+            type="text"
+            // value={editIngredients}
+            name="ingredients"
+            placeholder="Ingredient"
+            onChange={handleIngredientChange}
+          />
+          <button onClick={handleIngredientsClick} >Add Ingredient</button>
+        </label>
+            {editIngredients.map((ing) => {
+            return (
+              <div>
+                <ul>
+                  <li>{ing.ingredient}</li>
+                  <button onClick={() => {handleDeleteClick(ing.ingredient)}}>X</button>
+                </ul>
+              </div>
+            )
+          })}
+        <label> <span>Instructions</span>
+          <textarea
+            name="instructions"
+            placeholder=" Add instructions"
+            onChange={handleInstructionsChange}
+            value={editInstructions}
+          > 
+            {editInstructions}
+          </textarea>
+        </label>
+        <input type="submit" value="Update Recipe"/>
+      </form>    
+
     </div>
   )
 }
