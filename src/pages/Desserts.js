@@ -30,7 +30,6 @@ const Desserts = (props) => {
 
   const handleInstructionsChange = (e) => {
     setInstructions(e.target.value)
-    console.log(instructions)
   }
 
   const handleSubmit = (e) => {

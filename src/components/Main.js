@@ -4,6 +4,7 @@ import Home from '../pages/Home';
 import Appetizers from '../pages/Appetizers';
 import AppetizersShow from '../pages/AppetizersShow';
 import Desserts from '../pages/Desserts';
+import DessertsShow from '../pages/DessertsShow';
 
 const Main = () => {
 
@@ -97,6 +98,18 @@ const Main = () => {
         <Route exact path="/desserts">
           <Desserts desserts={desserts} createDesserts={createDesserts} />
         </Route>
+        <Route 
+          path="/desserts/:id"
+          render={(rp) => (
+            <DessertsShow 
+              {...rp}
+              desserts={desserts}
+              // updateDesserts={updateDesserts}
+              // deleteDesserts={deleteDesserts}
+            />
+            )
+          }
+        />
       </Switch>
     </main>
   )
