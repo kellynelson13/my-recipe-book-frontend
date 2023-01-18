@@ -77,6 +77,7 @@ const DessertsShow = (props) => {
         })}
       </ul>
       <p>{dessert.instructions}</p>
+      <button onClick={removeDessert}>Delete Dessert</button>
     </div>
   )
 }
