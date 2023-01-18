@@ -5,6 +5,7 @@ import Appetizers from '../pages/Appetizers';
 import AppetizersShow from '../pages/AppetizersShow';
 import Desserts from '../pages/Desserts';
 import DessertsShow from '../pages/DessertsShow';
+import Entrees from '../pages/Entrees';
 
 const Main = () => {
 
@@ -14,6 +15,7 @@ const Main = () => {
 
   const appetizersURL = "https://my-recipe-book-13.herokuapp.com/appetizers/";
   const dessertsURL = "https://my-recipe-book-13.herokuapp.com/desserts/";
+  const entreesURL = "https://my-recipe-book-13.herokuapp.com/entrees/";
 
   const getAppetizers = async () => {
     const response = await fetch(appetizersURL);
@@ -25,6 +27,12 @@ const Main = () => {
     const response = await fetch(dessertsURL);
     const data = await response.json();
     setDesserts(data);
+  }
+
+  const getEntrees = async () => {
+    const response = await fetch(entreesURL);
+    const data = await response.json();
+    setEntrees(data);
   }
  
   const createAppetizers = async (app) => {
@@ -128,6 +136,9 @@ const Main = () => {
             )
           }
         />
+        <Route exact path='/entrees'>
+          <Entrees />
+        </Route>
       </Switch>
     </main>
   )
